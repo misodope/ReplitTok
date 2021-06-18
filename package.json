@@ -8,13 +8,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
+    "classnames": "^2.3.1",
     "next": "latest",
     "react": "^17.0.1",
+    "react-circular-progressbar": "^2.0.4",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.0.4",
-    "postcss": "^8.1.10",
-    "tailwindcss": "^2.1.1"
+    "autoprefixer": "^10.2.6",
+    "install": "^0.13.0",
+    "npm": "^7.17.0",
+    "postcss": "^8.3.4",
+    "tailwindcss": "^2.1.4"
   }
 }
