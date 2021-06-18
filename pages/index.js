@@ -57,8 +57,6 @@ const Home = () => {
             textColor: "#000",
             trailColor: "#fff",
             backgroundColor: "#000",
-            width: 200,
-            height: 200,
           })}
           className={loaderClass}
         />
