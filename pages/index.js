@@ -5,33 +5,23 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "animate.css";
 
-const LeftSide = ({ clicked }) => {
+const AdultSwimLogo = () => {
   const leftText = "[a";
-  const leftClass = classNames("text-9xl animate__animated animate__fadeInLeft animate__delay-2s", {
-    animate__fadeOutUp: clicked,
-  });
-  return <div className={leftClass}>{leftText}</div>;
-};
-
-const RightSide = ({ clicked }) => {
   const rightText = "s]";
-  const rightClass = classNames("text-9xl animate__animated animate__fadeInRight animate__delay-2s", {
-    animate__fadeOutUp: clicked,
-  });
-  return <div className={rightClass}>{rightText}</div>;
+
+  return (
+    <div className="flex items-center justify-center py-2">
+      <div className="text-9xl animate__animated animate__fadeInLeft animate__delay-2s">{leftText}</div>
+      <div className="text-9xl animate__animated animate__fadeInRight animate__delay-2s">{rightText}</div>
+    </div>
+  );
 };
 
 const Home = () => {
-  const [clicked, setClicked] = useState(false);
+  // Interval ID to keep track of setInterval, as component re-renders
   const [intervalId, setIntervalId] = useState();
   const [loaderValue, setLoaderValue] = useState(0);
   const [loaderClass, setLoaderClass] = useState("");
-
-  const onEnter = (e) => {
-    e.preventDefault();
-
-    // setClicked(!clicked);
-  };
 
   useEffect(() => {
     if (!loaderValue) {
@@ -48,7 +38,7 @@ const Home = () => {
       );
 
       setTimeout(() => {
-        setLoaderClass("poo");
+        setLoaderClass("hidden");
       }, 1500);
 
       clearInterval(intervalId);
@@ -56,7 +46,7 @@ const Home = () => {
   }, [loaderValue]);
 
   return (
-    <div onClick={onEnter} className="flex items-center min-h-screen justify-center">
+    <div className="flex items-center min-h-screen justify-center">
       <div style={{ width: 200, height: 200 }}>
         <CircularProgressbar
           value={loaderValue}
@@ -72,10 +62,7 @@ const Home = () => {
           })}
           className={loaderClass}
         />
-        <div className="flex items-center justify-center py-2">
-          {loaderValue === 100 && <LeftSide clicked={clicked} />}
-          {loaderValue === 100 && <RightSide clicked={clicked} />}
-        </div>
+        {loaderValue === 100 && <AdultSwimLogo />}
       </div>
     </div>
   );
